@@ -9,6 +9,8 @@ const routerUsers = require('./routes/users');
 const routerCards = require('./routes/cards');
 const { login, createUser } = require('./controllers/auth');
 const auth = require('./middlewares/auth');
+const cors = require('./middlewares/cors');
+const { requestLogger, errorLogger } = require('./middlewares/logger');   
 const { LinkRegExp } = require('./utils/constants');
 const NotFoundError = require('./errors/not_found_err');
 
@@ -17,6 +19,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+app.use(cors);
+app.use(requestLogger);
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
@@ -47,6 +52,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 
