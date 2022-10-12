@@ -24,9 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // app.use(cors);
-app.use(cors({
-  origin: 'http://mesto.romanriyanov.nomoredomains.icu',
-}));
+app.use(cors());
 app.use(requestLogger);
 
 app.post('/signup', celebrate({
