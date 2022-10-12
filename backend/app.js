@@ -45,22 +45,22 @@ app.post('/signin', celebrate({
 
 app.use(auth);
 
-app.get('/signup', function(req, res, next) {
+// app.get('/signup', function(req, res, next) {
 
-//   router.get('/logout', function(req, res, next){
-//     cookie = req.cookies;
-//     for (var prop in cookie) {
-//         if (!cookie.hasOwnProperty(prop)) {
-//             continue;
-//         }    
-//         res.cookie(prop, '', {expires: new Date(0)});
-//     }
-//     res.redirect('/');
+// //   router.get('/logout', function(req, res, next){
+// //     cookie = req.cookies;
+// //     for (var prop in cookie) {
+// //         if (!cookie.hasOwnProperty(prop)) {
+// //             continue;
+// //         }    
+// //         res.cookie(prop, '', {expires: new Date(0)});
+// //     }
+// //     res.redirect('/');
+// // });
+
+//     return res.clearCookie('token').send({ message: 'Выход' });
+
 // });
-
-    return res.clearCookie('token').send({ message: 'Выход' });
-
-});
 
 app.use('/users', routerUsers);
 app.use('/cards', routerCards);

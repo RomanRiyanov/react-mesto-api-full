@@ -292,7 +292,7 @@ function App() {
                     header={Header}
                     footer={Footer}
                     headerEmail={headerEmail}
-                    signOut = {signOut}
+                    // signOut = {signOut}
                 />
 
                 <Route path='/sign-in'>
