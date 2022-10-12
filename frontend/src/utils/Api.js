@@ -94,7 +94,7 @@ class Api {
 }
 
 const apiConfig = {
-    baseUrl: 'http://api.mesto.romanriyanov.nomoredomains.icu',
+    baseUrl: 'https://api.mesto.romanriyanov.nomoredomains.icu',
     headers: {
     //   authorization: '6b29f5e5-c172-4a06-806f-c42366ee7092',
       'Content-Type': 'application/json'
