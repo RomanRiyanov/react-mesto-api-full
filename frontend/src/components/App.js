@@ -212,6 +212,18 @@ function App() {
         });
     }
 
+    function signOut () {
+        return auth.clearCookie()
+        .then((res) => {
+            if (res) {
+                return res;
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
+
     useEffect(() => {        
         if (localStorage.getItem('jwt')) {
             const jwt = localStorage.getItem('jwt');
@@ -280,6 +292,7 @@ function App() {
                     header={Header}
                     footer={Footer}
                     headerEmail={headerEmail}
+                    signOut = {signOut}
                 />
 
                 <Route path='/sign-in'>

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'http://api.mesto.romanriyanov.nomoredomains.icu';
 
 export const register = (password, email) => {
     return fetch(`${BASE_URL}/signup`, {
@@ -16,6 +16,23 @@ export const register = (password, email) => {
         return res;
       })
       .catch((error) => console.log(error));
+}; 
+
+export const clearCookie = () => {
+  return fetch(`${BASE_URL}/signup`, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+      else return Promise.reject(`Ошибка ${res.status}`)
+    })
+    .then((res) => {
+      return res;
+    })
+    .catch((error) => console.log(error));
 }; 
 
 export const authorize = (password, email) => {

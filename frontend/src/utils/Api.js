@@ -94,9 +94,9 @@ class Api {
 }
 
 const apiConfig = {
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-44',
+    baseUrl: 'http://api.mesto.romanriyanov.nomoredomains.icu',
     headers: {
-      authorization: '6b29f5e5-c172-4a06-806f-c42366ee7092',
+    //   authorization: '6b29f5e5-c172-4a06-806f-c42366ee7092',
       'Content-Type': 'application/json'
     }
   }

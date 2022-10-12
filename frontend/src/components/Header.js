@@ -6,11 +6,11 @@ import {
   } from 'react-router-dom';
 import logoPath from '../images/logo.svg';
 
-function Header({headerEmail}) {
+function Header({headerEmail, signOut}) {
 
-  function signOut(){
-    localStorage.removeItem('jwt');
-  }
+  // function signOut(){
+  //   localStorage.removeItem('jwt');
+  // }
 
   return (
     <section className="header">
