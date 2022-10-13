@@ -209,7 +209,7 @@ function App() {
                 setHeaderEmail(res.data.email);
                 setLoggedIn(true);
                 history.push('/');
-            }
+            } return;
         })
         .catch(err => {
             console.log(err);
