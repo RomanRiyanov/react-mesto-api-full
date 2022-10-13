@@ -1,7 +1,12 @@
 const allowedCors = [
     'http://mesto.romanriyanov.nomoredomains.icu',
+    'https://mesto.romanriyanov.nomoredomains.icu',
+    'http://api.mesto.romanriyanov.nomoredomains.icu',
+    'https://api.mesto.romanriyanov.nomoredomains.icu',
     'http://www.mesto.romanriyanov.nomoredomains.icu',
-    'http://localhost:3000', 
+    'https://www.mesto.romanriyanov.nomoredomains.icu',
+    'http://localhost:3000',
+    'https://localhost:3000'
 ];
 
 const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE"; 
