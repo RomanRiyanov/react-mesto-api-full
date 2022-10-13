@@ -13,8 +13,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { LinkRegExp } = require('./utils/constants');
 const NotFoundError = require('./errors/not_found_err');
 
-// const cors = require('./middlewares/cors');
-const cors = require('cors');
+const cors = require('./middlewares/cors');
+// const cors = require('cors');
 
 
 const app = express();
@@ -23,8 +23,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// app.use(cors);
-app.use(cors());
+app.use(cors);
+// app.use(cors());
 app.use(requestLogger);
 
 app.post('/signup', celebrate({
