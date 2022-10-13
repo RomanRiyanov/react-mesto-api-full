@@ -5,7 +5,7 @@ const InputError = require('../errors/input_err');
 
 const getUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.send({ data: users }))
+    .then((users) => res.send( users ))
     .catch(next);
 };
 
@@ -25,7 +25,7 @@ const getUserById = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь по указанному _id не найден');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send( user ))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new InputError('Переданы некорректный _id профиля'));
@@ -47,7 +47,7 @@ const updateUser = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь по указанному _id не найден');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send( user ))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new InputError('Переданы некорректные данные при обновлении профиля'));
@@ -69,7 +69,7 @@ const updateAvatar = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь по указанному _id не найден');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send( user ))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new InputError('Переданы некорректные данные при обновлении профиля'));
