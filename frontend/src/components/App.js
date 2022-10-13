@@ -182,14 +182,18 @@ function App() {
             if (!res) {
                 throw new Error ('Неверный email или пароль');
             }
-            if (res.token) {
-                setLoggedIn(true);
-                setRegisterSucceed(true);
-                history.push('/');
-                localStorage.setItem('jwt', res.token);
-            } else {
-                return;
-            }
+            setLoggedIn(true);
+            setRegisterSucceed(true);
+            history.push('/');
+            localStorage.setItem('jwt', res.token);
+            // if (res.token) {
+            //     setLoggedIn(true);
+            //     setRegisterSucceed(true);
+            //     history.push('/');
+            //     localStorage.setItem('jwt', res.token);
+            // } else {
+            //     return;
+            // }
         })
         .catch((err) => {
             setRegisterSucceed(false);
@@ -225,11 +229,11 @@ function App() {
     }
 
     useEffect(() => {        
-        if (localStorage.getItem('jwt')) {
-            const jwt = localStorage.getItem('jwt');
+        // if (localStorage.getItem('jwt')) {
+        //     const jwt = localStorage.getItem('jwt');
 
-            tokenCheck(jwt);
-        }
+            tokenCheck(/*jwt*/);
+        // }
     }, [loggedIn]);
 
     useEffect(() => {
