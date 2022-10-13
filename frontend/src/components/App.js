@@ -183,9 +183,10 @@ function App() {
                 throw new Error ('Неверный email или пароль');
             }
             setLoggedIn(true);
+            console.log(loggedIn);
             setRegisterSucceed(true);
             history.push('/');
-            localStorage.setItem('jwt', res.token);
+            // localStorage.setItem('jwt', res.token);
             // if (res.token) {
             //     setLoggedIn(true);
             //     setRegisterSucceed(true);
@@ -206,7 +207,7 @@ function App() {
         return auth.getContent(jwt)
         .then((res) => {
             if (res) {
-                setHeaderEmail(res.data.email);
+                setHeaderEmail(res.email);
                 setLoggedIn(true);
                 history.push('/');
             } return;
@@ -234,7 +235,7 @@ function App() {
 
             tokenCheck(/*jwt*/);
         // }
-    }, [loggedIn]);
+    }, [/**/]);
 
     useEffect(() => {
         if (loggedIn) {
