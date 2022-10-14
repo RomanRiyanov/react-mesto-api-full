@@ -1,5 +1,5 @@
-const BASE_URL = 'https://api.mesto.romanriyanov.nomoredomains.icu';
-// const BASE_URL = 'http://localhost:3000';
+// const BASE_URL = 'https://api.mesto.romanriyanov.nomoredomains.icu';
+const BASE_URL = 'http://localhost:3000';
 
 
 export const register = (password, email) => {
@@ -58,7 +58,7 @@ export const authorize = (password, email) => {
     .catch((err) => console.log(`Ошибка: ${err}`))
 }
 
-export const getContent = (jwt) => {
+export const getContent = () => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'GET',
         credentials: 'include',

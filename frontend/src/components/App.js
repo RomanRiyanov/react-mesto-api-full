@@ -203,8 +203,8 @@ function App() {
           });
     }
 
-    function tokenCheck (jwt) {
-        return auth.getContent(jwt)
+    function tokenCheck () {
+        return auth.getContent()
         .then((res) => {
             if (res) {
                 setHeaderEmail(res.email);
