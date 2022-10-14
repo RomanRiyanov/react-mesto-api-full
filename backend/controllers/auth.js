@@ -40,7 +40,8 @@ const login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        process.env.NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret-crypto-bimba',
+        // process.env.JWT_SECRET,
+        process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET : 'dev-secret-crypto-bimba',
         { expiresIn: '7d' },
       );
 
