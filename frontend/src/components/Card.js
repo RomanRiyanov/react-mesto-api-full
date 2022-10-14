@@ -14,8 +14,8 @@ function Card ({
 
     const currentUser = useContext(CurrentUserContext);
 
-    const isOwn = card.owner._id === currentUser._id;
-    const isLiked = card.likes.some(elem => elem._id === currentUser._id);
+    const isOwn = card.owner === currentUser._id;
+    const isLiked = card.likes.some(elem => elem === currentUser._id);
 
     const deleteButtonClassName = (
         `delete-button ${isOwn || 'delete-button_hidden'}`

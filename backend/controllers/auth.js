@@ -6,7 +6,7 @@ const InputError = require('../errors/input_err');
 const AuthorizationError = require('../errors/auth_err');
 const ConflictError = require('../errors/conflict_err');
 
-const { JWT_SECRET = 'd68261db864dad0fba0061a8ce2e86fc1828d43a1a59041d8314b10261a85412' } = process.env;
+// const { JWT_SECRET = 'd68261db864dad0fba0061a8ce2e86fc1828d43a1a59041d8314b10261a85412' } = process.env;
 
 const createUser = (req, res, next) => {
   const {
@@ -40,7 +40,7 @@ const login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        JWT_SECRET,
+        process.env.NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret-crypto-bimba',
         { expiresIn: '7d' },
       );
 

@@ -1,4 +1,6 @@
-const BASE_URL = 'https://api.mesto.romanriyanov.nomoredomains.icu';
+// const BASE_URL = 'https://api.mesto.romanriyanov.nomoredomains.icu';
+const BASE_URL = 'http://localhost:3000';
+
 
 export const register = (password, email) => {
     return fetch(`${BASE_URL}/signup`, {
@@ -19,8 +21,8 @@ export const register = (password, email) => {
       .catch((error) => console.log(error));
 }; 
 
-export const clearCookie = () => {
-  return fetch(`${BASE_URL}/signup`, {
+export const logOut = () => {
+  return fetch(`${BASE_URL}/logout`, {
       method: 'GET',
       credentials: 'include',
       headers: {

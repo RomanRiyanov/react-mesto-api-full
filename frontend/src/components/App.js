@@ -108,7 +108,7 @@ function App() {
     }
 
     function handleCardLike (card) {
-        const isLiked = card.likes.some(elem => elem._id === currentUser._id);
+        const isLiked = card.likes.some(elem => elem === currentUser._id);
         setIsLoaded(true);
 
         api.changeLikeCardStatus(card._id, isLiked)
@@ -217,17 +217,17 @@ function App() {
         });
     }
 
-    function signOut () {
-        return auth.clearCookie()
-        .then((res) => {
-            if (res) {
-                return res;
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    }
+    // function signOut () {
+    //     return auth.clearCookie()
+    //     .then((res) => {
+    //         if (res) {
+    //             return res;
+    //         }
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     });
+    // }
 
     useEffect(() => {        
         // if (localStorage.getItem('jwt')) {

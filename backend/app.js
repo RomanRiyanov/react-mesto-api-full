@@ -27,6 +27,12 @@ app.use(cors);
 // app.use(cors());
 app.use(requestLogger);
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+}); 
+
 app.post('/signup', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
@@ -44,6 +50,11 @@ app.post('/signin', celebrate({
 }), login);
 
 app.use(auth);
+
+app.get('/logout', function(req, res, next) {
+  res.clearCookie('jwt').send({ message: 'Выход из профиля' });
+});
+
 
 // app.get('/signup', function(req, res, next) {
 
