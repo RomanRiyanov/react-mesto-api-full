@@ -235,7 +235,7 @@ function App() {
 
             tokenCheck(/*jwt*/);
         // }
-    }, [/*loggedIn*/]);
+    }, [loggedIn]);
 
     useEffect(() => {
         if (loggedIn) {
