@@ -186,15 +186,6 @@ function App() {
             console.log(loggedIn);
             setRegisterSucceed(true);
             history.push('/');
-            // localStorage.setItem('jwt', res.token);
-            // if (res.token) {
-            //     setLoggedIn(true);
-            //     setRegisterSucceed(true);
-            //     history.push('/');
-            //     localStorage.setItem('jwt', res.token);
-            // } else {
-            //     return;
-            // }
         })
         .catch((err) => {
             setRegisterSucceed(false);
@@ -217,24 +208,8 @@ function App() {
         });
     }
 
-    // function signOut () {
-    //     return auth.clearCookie()
-    //     .then((res) => {
-    //         if (res) {
-    //             return res;
-    //         }
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     });
-    // }
-
     useEffect(() => {        
-        // if (localStorage.getItem('jwt')) {
-        //     const jwt = localStorage.getItem('jwt');
-
-            tokenCheck(/*jwt*/);
-        // }
+            tokenCheck();
     }, [loggedIn]);
 
     useEffect(() => {

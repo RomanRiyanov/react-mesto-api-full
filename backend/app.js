@@ -1,30 +1,24 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { errors } = require('celebrate');
-require('dotenv').config();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const { celebrate, Joi } = require('celebrate');
+const { celebrate, errors, Joi } = require('celebrate');
 const routerUsers = require('./routes/users');
 const routerCards = require('./routes/cards');
 const { login, createUser } = require('./controllers/auth');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const auth = require('./middlewares/auth');
-const { requestLogger, errorLogger } = require('./middlewares/logger');   
+const cors = require('./middlewares/cors');
 const { LinkRegExp } = require('./utils/constants');
 const NotFoundError = require('./errors/not_found_err');
-
-const cors = require('./middlewares/cors');
-// const cors = require('cors');
-
+require('dotenv').config();
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-
 app.use(cors);
-// app.use(cors());
 app.use(requestLogger);
 
 app.get('/crash-test', () => {
@@ -54,24 +48,6 @@ app.use(auth);
 app.get('/logout', function(req, res, next) {
   res.clearCookie('jwt').send({ message: 'Выход из профиля' });
 });
-
-
-// app.get('/signup', function(req, res, next) {
-
-// //   router.get('/logout', function(req, res, next){
-// //     cookie = req.cookies;
-// //     for (var prop in cookie) {
-// //         if (!cookie.hasOwnProperty(prop)) {
-// //             continue;
-// //         }    
-// //         res.cookie(prop, '', {expires: new Date(0)});
-// //     }
-// //     res.redirect('/');
-// // });
-
-//     return res.clearCookie('token').send({ message: 'Выход' });
-
-// });
 
 app.use('/users', routerUsers);
 app.use('/cards', routerCards);
