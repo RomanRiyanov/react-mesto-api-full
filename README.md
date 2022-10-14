@@ -7,6 +7,6 @@
 > - добавление/удаление карточки
 > - постановка и снятие лайка
   
-__IP__ 51.250.11.176
-__Frontend__ https://mesto.romanriyanov.nomoredomains.icu
-__Backend__ https://api.mesto.romanriyanov.nomoredomains.icu
+__IP__ 51.250.11.176 <br>
+__Frontend__ https://mesto.romanriyanov.nomoredomains.icu <br>
+__Backend__ https://api.mesto.romanriyanov.nomoredomains.icu <br>

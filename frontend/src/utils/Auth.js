@@ -1,5 +1,5 @@
-// const BASE_URL = 'https://api.mesto.romanriyanov.nomoredomains.icu';
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://api.mesto.romanriyanov.nomoredomains.icu';
+// const BASE_URL = 'http://localhost:3000';
 
 
 export const register = (password, email) => {
