@@ -13,7 +13,7 @@ const ProtectedRoute = (
             if (props.loggedIn) {
                 return (
                 <>
-                    <Header headerEmail={props.headerEmail}/> 
+                    <Header loginOut={props.loginOut} headerEmail={props.headerEmail}/> 
                     <Component {...props}/>
                     <Footer/>
                 </>)

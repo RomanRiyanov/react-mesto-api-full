@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -11,7 +12,6 @@ const auth = require('./middlewares/auth');
 const cors = require('./middlewares/cors');
 const { LinkRegExp } = require('./utils/constants');
 const NotFoundError = require('./errors/not_found_err');
-require('dotenv').config();
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-}); 
+});
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
@@ -45,8 +45,9 @@ app.post('/signin', celebrate({
 
 app.use(auth);
 
-app.get('/logout', function(req, res, next) {
+app.get('/logout', (req, res, next) => {
   res.clearCookie('jwt').send({ message: 'Выход из профиля' });
+  next();
 });
 
 app.use('/users', routerUsers);

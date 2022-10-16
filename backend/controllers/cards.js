@@ -39,7 +39,8 @@ const deleteCard = (req, res, next) => {
         throw new ForbiddenError('Нельзя удалять чужую карточку');
       }
       Card.findByIdAndDelete(cardId)
-        .then((cardSelected) => res.send( cardSelected ));
+        .then((cardSelected) => res.send(cardSelected))
+        .catch(next);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -57,7 +58,7 @@ const likeCard = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Передан несуществующий _id карточки');
     })
-    .then((card) => res.send( card ))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new InputError('Переданы некорректные данные для постановки/снятии лайка'));
@@ -74,7 +75,7 @@ const dislikeCard = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Передан несуществующий _id карточки');
     })
-    .then((card) => res.send( card ))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new InputError('Переданы некорректные данные для постановки/снятии лайка'));

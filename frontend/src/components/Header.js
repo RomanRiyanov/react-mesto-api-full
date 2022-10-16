@@ -5,24 +5,11 @@ import {
     Link,
   } from 'react-router-dom';
 import logoPath from '../images/logo.svg';
-import { logOut } from '../utils/Auth';
 
-function Header({headerEmail/*, signOut*/}) {
+function Header({headerEmail, loginOut}) {
 
-  // function signOut(){
-  //   localStorage.removeItem('jwt');
-  // }
-
-  function loginOut(){
-    return logOut()
-      .then((res) => {
-        if (res) {
-            return res;
-        }
-      })
-      .catch(err => {
-          console.log(err);
-      });
+  function signOut(){
+    return loginOut();
   }
 
   return (
@@ -32,7 +19,7 @@ function Header({headerEmail/*, signOut*/}) {
           <Route exact path='/'>
             <div className='header__link_container'>
               <p className='header__link_email'>{headerEmail}</p>
-              <Link onClick={/*signOut*/loginOut} className='header__link' to='/sign-in'>Выйти с этой планеты</Link>
+              <Link onClick={signOut} className='header__link' to='/sign-in'>Выйти с этой планеты</Link>
             </div>
           </Route>
           <Route exact path='/sign-up'>

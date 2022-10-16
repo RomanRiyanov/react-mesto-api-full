@@ -131,7 +131,7 @@ function App() {
         api.deleteCard(card._id)
         .then(() => {
             setCards((oldCards) => {
-                return oldCards.filter((item) => item._id != card._id)
+                return oldCards.filter((item) => item._id !== card._id)
             })
         })
         .catch(err => {
