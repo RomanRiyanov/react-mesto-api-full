@@ -193,6 +193,19 @@ function App() {
             setInfoTooltipOpen(true);
           });
     }
+    
+    function loginOut(){
+        return auth.logOut()
+          .then((res) => {
+            if (res) {
+                setLoggedIn(false);
+                return res;
+            }
+          })
+          .catch(err => {
+              console.log(err);
+          });
+      }
 
     function tokenCheck () {
         return auth.getContent()
@@ -272,7 +285,7 @@ function App() {
                     header={Header}
                     footer={Footer}
                     headerEmail={headerEmail}
-                    // signOut = {signOut}
+                    loginOut={loginOut}
                 />
 
                 <Route path='/sign-in'>
